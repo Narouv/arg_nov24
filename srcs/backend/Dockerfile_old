@@ -1,0 +1,14 @@
+FROM httpd:2.4
+RUN apt-get update && apt-get install -y python3 python3-venv curl gcc make apache2-dev python-dev-is-python3
+RUN curl -o mod_wsgi.tar.gz https://codeload.github.com/GrahamDumpleton/mod_wsgi/tar.gz/refs/tags/5.0.0 && \
+	tar xvfz mod_wsgi.tar.gz && cd mod_wsgi-5.0.0 && \
+	./configure 
+RUN  cd mod_wsgi-5.0.0 && make && cp src/server/.libs/mod_wsgi.so /usr/local/apache2/modules/mod_wsgi.so
+RUN python3 -m venv /django-site && \
+	. /django-site/bin/activate && \
+	pip3 install Django==5.0.3 psycopg django-environ psycopg2-binary
+COPY httpd.conf .
+RUN cat httpd.conf >> /usr/local/apache2/conf/httpd.conf
+
+#ENTRYPOINT [ "tail", "-f" ]
+

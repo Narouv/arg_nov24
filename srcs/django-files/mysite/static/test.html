@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+<body>
+	<div>
+		<div id="aowdnaowd">
+
+		</div>
+	</div>
+
+	<script>
+		async function testFunc()
+		{
+			var element = document.getElementById('aowdnaowd');
+			var res = await fetch('/polls');
+			element.innerHTML =  await res.text();
+		}
+
+
+		testFunc()
+	</script>
+
+</body>

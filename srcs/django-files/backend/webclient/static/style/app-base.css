@@ -1,0 +1,59 @@
+/* global style settings */
+
+html {
+	height: 100%;
+}
+/* Whoever dares to remove this style shall face the wrath of eternal CSS flames. */
+body {
+	height: 100%;
+	position: relative;
+	top: -45px;
+	background-color: #251f25;
+	background-image: url('/static/webclient/img/bg-5.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	
+}
+
+.center-flex {
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+#content {
+	position: relative;
+	top: 0;
+	height: 100%;
+}
+
+/* responsive style settings */
+@media screen and (max-width: 767px) {
+	#content {
+		top: 60px;
+	}
+}
+
+/* @media screen and (max-width: 576px) {
+} */
+
+/* @media screen and (min-width: 577px) {
+} */
+
+/* @media screen and (min-width: 768px) {
+} */
+
+/* @media screen and (min-width: 992px) {
+} */
+
+/* @media screen and (min-width: 1200px) {
+} */
+
+/* @media screen and (min-width: 1400px) {
+} */
+
+/* @media screen and (min-width: 2000px) {
+} */

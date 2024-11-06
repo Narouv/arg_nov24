@@ -1,0 +1,30 @@
+{% load static %}
+{% load profile_tags %}
+<div class="container rounded bg-body-secondary player-profile-window px-1 pb-2 d-flex flex-column">
+    <div class="row">
+        <div class="col-3 my-2 mx-2 player-profile-image-col">
+            <img src="{{ request.user.avatar.url }}" class="rounded float-start player-profile-image " alt="">
+        </div>
+        <div class="col mt-2">
+            <h4 class="text-black mb-1">Player Profile</h4>
+            <div class="">
+                {% for info in userInfo %}
+                    <div class="row">
+                        <div class="col">
+                            <span class="text-black fw-bold">{{info.tag}}:</span>
+                        </div>
+                        <div class="col">
+                            <span class="text-black">
+                                {% if not info.value %} 
+                                    None
+                                {% else %}
+                                    {{ info.value }}
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

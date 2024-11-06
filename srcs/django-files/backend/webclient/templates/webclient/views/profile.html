@@ -1,0 +1,23 @@
+{% extends "webclient/views/content-window.html" %}
+{% load profile_tags %}
+
+{% block content %}
+<div class="container">
+  <div class="row my-5">
+    <div class="col mt-0">
+      {% display_match_history %}
+    </div>
+    <div class="col">
+      <div class="row">
+        {% display_player_profile %}
+      </div>
+      <div class="row my-1">
+        {% display_player_stats %}
+      </div>
+    </div>
+    <div class="col mt-0">
+      {% include "../snippets/friend-list.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}
