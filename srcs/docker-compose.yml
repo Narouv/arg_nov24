@@ -29,7 +29,7 @@ services:
     networks:
       - p-net
     ports:
-      - 8001:8000
+      - 99:8000
     volumes:
       - ./django-files/backend:/var/django-site
 

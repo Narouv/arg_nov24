@@ -1,3 +1,5 @@
+import "/static/webclient/setup.js"
+
 window.revealChat = function() {
     document.getElementById("chatWindow").style.display = "inline-block";
     document.getElementById("accessBtn").hidden = true;
@@ -14,13 +16,14 @@ window.revealChat = function() {
     });
 }
 
-window.checkPassword = function() {
+window.checkPassword = async function()
+{
     var passwordInput = document.getElementById("passwordBox");
     var isCorrect = document.getElementById("correctnessIndicator");
     const instructionsContainer = document.getElementById("instructionsContainer");
 
-    // Passwort-Überprüfung (Beispielpasswort: "Vertraulich")
-    if (passwordInput.value == "Vertraulich")
+    var res = await api.post('/api/auth/checkpass/', { input: passwordInput.value }, { noauth: true })
+    if (res.success)
     {
         instructionsContainer.style.display = "block";
         isCorrect.innerText = "Correct!";

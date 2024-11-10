@@ -10,6 +10,7 @@ from .endpoints.user.user import UserManager, PasswordReset
 from .endpoints.user.avatar import AvatarAPI
 from .endpoints import devtest
 from .endpoints.auth.TwoFactor.TwoFactor import TwoFactorAPI
+from .endpoints.auth.fun.fun import funpass
 
 
 urlpatterns = [
@@ -32,4 +33,5 @@ urlpatterns = [
     #path("register/<str:username>/<str:email>/<str:password>/", views.register, name="register"),
 	path("auth/oauth", allow.as_view(), name="oauth"),
 	path("auth/redir", oauthLogin.as_view(), name="redir"),
+	path("auth/checkpass/", funpass.as_view(), name="checkpass"),
 ]
